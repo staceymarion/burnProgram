@@ -165,7 +165,7 @@ function setEnumerationUnits(americanStates, map, path) {
         })
 
         var desc = states.append("desc")
-            .text('{"stroke": "black", "stroke-width": "0.8px"}') // upon mouseover, style returns to original
+            .text('{"stroke": "white", "stroke-width": "0.8px"}') // upon mouseover, style returns to original
 };
 
 // infolabel on click
