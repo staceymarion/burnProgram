@@ -289,7 +289,7 @@ ul.h2 {
 }
 
 .accordion-menu li {
-    color: #0e6349;
+    color: #011f4b;
 }
 .accordion-menu li:last-child .dropdownlink {
     border-bottom: 1px;
@@ -301,7 +301,7 @@ ul.h2 {
     font-size: 15px;
     font-weight:normal;
     border-bottom: 1px solid #ccc;
-    color: #0e6349; /*7FCDCD */
+    color: #011f4b; /*7FCDCD */
     transition: all 0.5s ease-out;
 }
 
@@ -324,7 +324,7 @@ ul.h2 {
     color: #fff;
     padding: 15px 15px 15px 15px;
     transition: all 0.5s ease-out;
-    background-color:#082e2e;
+    background-color:#011f4b;
     font-size: 14px;
 }
 .submenuItems a:hover {
@@ -348,7 +348,7 @@ ul.h2 {
     font-size: 30px;
     text-align: center;
     line-height: 125%;
-    color: #082e2e;
+    color: #011f4b;
     z-index: 2;
     width: 600px;
     padding: 10px;
@@ -368,7 +368,7 @@ ul.h2 {
     position: absolute;
     height: 90px;
     width: 1200px;
-    color: #082e2e;
+    color: #011f4b;
     background-color: rgb(255, 255, 255);
     border: solid thin #fff;
     margin: 10px auto;
@@ -395,7 +395,7 @@ ul.h2 {
     display:block;
     height: 0px;
     width: 95%;
-    color: #082e2e;
+    color: #011f4b;
     margin: 0;
     padding: 15px 15px 15px 15px;
 }
@@ -407,7 +407,7 @@ ul.h2 {
     font-size: 15px;
     display:inline-block;
     width: 95%;
-    color: #082e2e;
+    color: #011f4b;
     margin-top: 0px;  /* remove margin-top for opaque legend to cover */
     padding: 15px 15px 15px 15px;
 }
