@@ -157,7 +157,7 @@ function setMap(){
 
        // CARTODB VERSION  documentation example:
 
-      $.getJSON("http://staceymarion.cartodb.com/api/v2/sql?q=SELECT * FROM usaStates1 WHERE the_geom IS NOT NULL&format=geojson", callback); // converted data to geojson; had to run a rewinding : https://observablehq.com/@john-guerra/d3-black-box-map
+      $.getJSON("https://staceymarion.cartodb.com/api/v2/sql?q=SELECT * FROM usaStates1 WHERE the_geom IS NOT NULL&format=geojson", callback); // converted data to geojson; had to run a rewinding : https://observablehq.com/@john-guerra/d3-black-box-map
    
       function callback(data){
       var usa = data;
