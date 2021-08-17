@@ -167,7 +167,7 @@ function setMap(){
       //console.log(topo);
       
       var americanStates = topojson.feature(topo, topo.objects.foo).features;
-      console.log(americanStates); 
+      //console.log(americanStates); 
 
       setEnumerationUnits(americanStates, map, path);
 
@@ -200,8 +200,8 @@ function setMap(){
             $this = $(this),
             //this is the ul.submenuItems
             $next = $this.next();
-        console.log($this);   
-        console.log($next); 
+        //console.log($this);   
+        //console.log($next); 
     
         $next.slideToggle(); // this opens the submenu items
         $this.parent().toggleClass('open'); 
@@ -275,7 +275,7 @@ function activate(props) {
     //var link = props["Link"];
     //var linktext = props["fcName"];
     var link = props["link"];
-    console.log(link);
+    //console.log(link);
     var linktext = props["fcname"];
     var linkInternal = linktext.link("firecolinks.html");
     
