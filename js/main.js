@@ -8,21 +8,7 @@
 (function(){
 
 //pseudo-global variables
-/* var attrArray = ["Acres_2017", 
-                 "Acres_2018", 
-                 "Acres_2019", 
-                 "PermitFee",
-                 "Time4Permi",
-                 "BurnProgra", 
-                 "Trend_2017", 
-                 "Trend_2018", 
-                 "Trend_2019", 
-                 "LiabilityL", 
-                 "PermitRequ", 
-                 "FireCounci",  
-                 "fcName", 
-                 "Link"]; */
-// lowercase version for carto db
+
 var attrArray = ["acres_2017", 
                  "acres_2018", 
                  "acres_2019", 
@@ -42,38 +28,6 @@ var expressed = attrArray[11]; // initial attribute expressed
 
 var stateName = "NaN";  // pseudoglobal variable to track state activation (selection). default means no state selected
 
-//green scheme
-/*var attrcol = {
-    Acres_2017: {1: "#D8F2D0", 2: "#AFDBA8", 3: "#74C476", 4: "#319450", 5: "#145A32"},
-    Acres_2018: {1: "#D8F2D0", 2: "#AFDBA8", 3: "#74C476", 4: "#319450", 5: "#145A32"}, 
-    Acres_2019: {1: "#D8F2D0", 2: "#AFDBA8", 3: "#74C476", 4: "#319450", 5: "#145A32"}, 
-    BurnProgra: {"Yes": "#145A32", "No": "#D8F2D0"},
-    FireCounci: {"Yes": "#74C476", "No": "#D8F2D0", "Regional":"#145A32"},
-    LiabilityL: {1:"#AFDBA8", 2:"#74C476", 3:"#145A32", 4:"#D8F2D0" },
-    PermitFee: {"N/A":"#D0D3D4", "Not Required":"#319450", "Sometimes":"#74C476", "Required":"#145A32"}, 
-    PermitRequ: {"Required":"#D8F2D0", "Not Required":"#145A32"},
-    Time4Permi: {1:"#D0D3D4", 2:"#145A32", 3:"#74C476"},
-    Trend_2017: {"Down":"#D8F2D0", "Same":"#74C476", "Up":"#145A32"}, 
-    Trend_2018: {"Down":"#D8F2D0", "Same":"#74C476", "Up":"#145A32"}, 
-    Trend_2019: {"Down":"#D8F2D0", "Same":"#74C476", "Up":"#145A32"},
-};*/
-//blue option
-/* var attrcol = {
-    Acres_2017: {1: "#b3cde0", 2: "#6497b1", 3: "#005b96", 4: "#03396c", 5: "#011f4b"},
-    Acres_2018: {1: "#b3cde0", 2: "#6497b1", 3: "#005b96", 4: "#03396c", 5: "#011f4b"}, 
-    Acres_2019: {1: "#b3cde0", 2: "#6497b1", 3: "#005b96", 4: "#03396c", 5: "#011f4b"}, 
-    BurnProgra: {"Yes": "#011f4b", "No": "#b3cde081"},
-    FireCounci: {"Yes": "#005b96", "No": "#b3cde081", "Regional":"#011f4b"},
-    LiabilityL: {1:"#6497b1", 2:"#005b96", 3:"#011f4b", 4:"#b3cde081" },//"#03396c"
-    PermitFee: {"N/A":"#b3cde081", "Not Required":"#011f4b", "Sometimes":"#005b96", "Required":"#011f4b"},  //"#011f4b" "#005b96"
-    PermitRequ: {"Required":"#b3cde0", "Not Required":"#011f4b"},
-    Time4Permi: {1:"#b3cde081", 2:"#011f4b", 3:"#005b96"},
-    Trend_2017: {"Down":"#b3cde0", "Same":"#005b96", "Up":"#011f4b"}, 
-    Trend_2018: {"Down":"#b3cde0", "Same":"#005b96", "Up":"#011f4b"}, 
-    Trend_2019: {"Down":"#b3cde0", "Same":"#005b96", "Up":"#011f4b"},
-
-};  */
-// lowercase version for carto db 
 var attrcol = {
     acres_2017: {1: "#b3cde0", 2: "#6497b1", 3: "#005b96", 4: "#03396c", 5: "#011f4b"},
     acres_2018: {1: "#b3cde0", 2: "#6497b1", 3: "#005b96", 4: "#03396c", 5: "#011f4b"}, 
@@ -112,71 +66,22 @@ function setMap(){
     
     createLegend(expressed);  
 
-    // TOPOJSON VERSION
-/*     $.getJSON("data/usaStates1.topojson", callback); // all data joined in topojson
-   
-        function callback(data){
-        var usa = data;
-        console.log(usa); // topojson: arcs, crs, objects. geojson: logs feature collection array (has geometry but not topology)
-        
-        var americanStates = topojson.feature(usa, usa.objects.usaStates1).features;
-        console.log(americanStates);
-
-        setEnumerationUnits(americanStates, map, path);
-
-        // update map when li items in accordion is clicked
-        $(".attrli").on("click", function () {
-            var id = $(this).attr("id");
-            //console.log(id);
-            updateMap(id);
-       
-        });
- */
-/*    // GEOJSON VERSION
-      $.getJSON("data/usaStates1.json", callback); // converted data to geojson; had to run a rewinding : https://observablehq.com/@john-guerra/d3-black-box-map
-   
-        function callback(data){
-        var usa = data;
-        //console.log(usa); // topojson: arcs, crs, objects. geojson: logs feature collection array (has geometry but not topology)
-
-        var topo = topojson.topology({foo: usa});
-        console.log(topo);
-        
-        var americanStates = topojson.feature(topo, topo.objects.foo).features;
-        //console.log(topo.objects.foo); //logs the geometryCollection
-
-        setEnumerationUnits(americanStates, map, path);
-
-        // update map when li items in accordion is clicked
-        $(".attrli").on("click", function () {
-            var id = $(this).attr("id");
-            //console.log(id);
-            updateMap(id);
-       
-        }); */ 
-
-       // CARTODB VERSION  documentation example:
-
-      $.getJSON("https://staceymarion.cartodb.com/api/v2/sql?q=SELECT * FROM usaStates1 WHERE the_geom IS NOT NULL&format=geojson", callback); // converted data to geojson; had to run a rewinding : https://observablehq.com/@john-guerra/d3-black-box-map
+    // ajax request 
+    $.getJSON("https://staceymarion.cartodb.com/api/v2/sql?q=SELECT * FROM usaStates1 WHERE the_geom IS NOT NULL&format=geojson", callback); // converted data to geojson; had to run a rewinding : https://observablehq.com/@john-guerra/d3-black-box-map
    
       function callback(data){
       var usa = data;
-      //console.log(usa); // topojson: arcs, crs, objects. geojson: logs feature collection array (has geometry but not topology)
 
       var topo = topojson.topology({foo: usa});
-      //console.log(topo);
       
       var americanStates = topojson.feature(topo, topo.objects.foo).features;
-      //console.log(americanStates); 
 
       setEnumerationUnits(americanStates, map, path);
 
       // update map when li items in accordion is clicked
       $(".attrli").on("click", function () {
           var id = $(this).attr("id");
-          //console.log(id);
           updateMap(id);
-     
       }); 
 
     }; // end of callback
@@ -200,8 +105,6 @@ function setMap(){
             $this = $(this),
             //this is the ul.submenuItems
             $next = $this.next();
-        //console.log($this);   
-        //console.log($next); 
     
         $next.slideToggle(); // this opens the submenu items
         $this.parent().toggleClass('open'); 
@@ -258,7 +161,7 @@ function setEnumerationUnits(americanStates, map, path) {
 function activate(props) {
     // this gets id of clicked state
     $(".states").click(function() {       
-        stateName = this.id;    // assign id of clicked state to the global variable, referring to "id" in setEnumerationUnits 
+        stateName = this.id;    // assign id of clicked state                                                   to the global variable, referring to "id" in setEnumerationUnits 
     });
 
     //remove (old) label info with click
@@ -272,11 +175,8 @@ function activate(props) {
     //variables for label creation
     var labelName = props.name;
     var labelAttribute;    
-    //var link = props["Link"];
-    //var linktext = props["fcName"];
     var link = props["link"];
-    var cbmplink = props["link_cbmp"];
-    //console.log(link);
+    var cbmplink = props["link_cbmp"];                                                                   //<-------- assign a variable for our new column in order to 
     var linktext = props["fcname"];
     var linkInternal = linktext.link("firecolinks.html");
 
@@ -429,116 +329,6 @@ function createLegend(expressed) {
         .attr("class", "svg");   
     
     //if, else if statement to choose the legend to be shown that corresponds with expressed
-/*     if (expressed == "Acres_2017") {  
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#AFDBA8").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#319450").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 222).text("250,001-1,000,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 252).text(">1,000,000").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "Acres_2018") {  
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#AFDBA8").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#319450").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 222).text("250,001-1,000,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 252).text(">1,000,000").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "Acres_2019") {  
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#AFDBA8").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#319450").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 222).text("250,001-1,000,000").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 252).text(">1,000,000").style("font-size", "16px").attr("alignment-baseline","middle"); 
-    } else if (expressed == "PermitFee") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D0D3D4").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#319450").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Application Fee").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("N/A").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Not Required").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Sometimes").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 222).text("Required").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "Time4Permi") {
-        svg.append("circle").attr("cx", 10).attr("cy" ,130).attr("r", 8).style("fill", "#D0D3D4").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 7).attr("y", 100).text("Permit Authorization").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("N/A").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Day of Burn").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("More than 1 Day").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "BurnProgra") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Burn Programs").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Yes").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("No").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "Trend_2017") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Trend from prior survey").style("font-size", "18px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Down (>10% decrease)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Same (Within 10%)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Up (>10% increase)").style("font-size", "16px").attr("alignment-baseline","middle"); 
-    } else if (expressed == "Trend_2018") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Trend from prior survey").style("font-size", "18px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Down (>10% decrease)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Same (Within 10%)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Up (>10% increase)").style("font-size", "16px").attr("alignment-baseline","middle"); 
-    } else if (expressed == "Trend_2019") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Trend from prior survey").style("font-size", "18px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Down (>10% decrease)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Same (Within 10%)").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Up (>10% increase)").style("font-size", "16px").attr("alignment-baseline","middle"); 
-    } else if (expressed == "LiabilityL") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#AFDBA8").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 15).attr("y", 100).text("Liability Law").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Strict Liability").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Simple Negligence").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Gross Negligence").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 222).text("No Law").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "PermitRequ") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Permit Requirements").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Required").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("Not Required").style("font-size", "16px").attr("alignment-baseline","middle");
-    } else if (expressed == "FireCounci") {
-        svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#74C476").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#D8F2D0").style("stroke", "black").style("stroke-width", .5);
-        svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#145A32").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("State Fire Council").style("font-size", "20px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 132).text("Yes").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("No").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 192).text("Regional").style("font-size", "16px").attr("alignment-baseline","middle");
-    };  */
-    // lowercase for cartodb
     if (expressed == "acres_2017") {  
         svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#b3cde0").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#6497b1").style("stroke", "black").style("stroke-width", .5);
@@ -651,7 +441,7 @@ function createLegend(expressed) {
 };
 
 //dropdown change event handler
-function updateMap(attribute, usa) { // dont actually use usa
+function updateMap(attribute, usa) { 
     //change the expressed attribute
     expressed = attribute;
 
