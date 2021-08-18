@@ -275,100 +275,10 @@ function activate(props) {
     //var link = props["Link"];
     //var linktext = props["fcName"];
     var link = props["link"];
+    var cbmplink = props["link_cbmp"];
     //console.log(link);
     var linktext = props["fcname"];
     var linkInternal = linktext.link("firecolinks.html");
-    
-
-
-    //if, else if statements to makeup label content
-/*     if (expressed == "Acres_2017") {
-        if (props[expressed] == 1) {
-            labelAttribute = "<1,000 forestry acres burned in 2017";
-        } else if (props[expressed] == 2) {
-            labelAttribute = "1,001-50,000 forestry acres burned in 2017";
-        } else if (props[expressed] == 3) {
-            labelAttribute = "50,001-250,000 forestry acres burned in 2017";
-        } else if (props[expressed] == 4) {
-            labelAttribute = "250,001-1,000,000 forestry acres burned in 2017";
-        } else if (props[expressed] == 5) {
-            labelAttribute = ">1,000,000 forestry acres burned in 2017";
-        };
-    } else if (expressed == "Acres_2018") {
-        if (props[expressed] == 1) {
-            labelAttribute = "<1,000 forestry acres burned in 2018";
-        } else if (props[expressed] == 2) {
-            labelAttribute = "1,001-50,000 forestry acres burned in 2018";
-        } else if (props[expressed] == 3) {
-            labelAttribute = "50,001-250,000 forestry acres burned in 2018";
-        } else if (props[expressed] == 4) {
-            labelAttribute = "250,001-1,000,000 forestry acres burned in 2018";
-        } else if (props[expressed] == 5) {
-            labelAttribute = ">1,000,000 forestry acres burned in 2018";
-        };
-    } else if (expressed == "Acres_2019") {
-        if (props[expressed] == 1) {
-            labelAttribute = "<1,000 forestry acres burned in 2019";
-        } else if (props[expressed] == 2) {
-            labelAttribute = "1,001-50,000 forestry acres burned in 2019";
-        } else if (props[expressed] == 3) {
-            labelAttribute = "50,001-250,000 forestry acres burned in 2019";
-        } else if (props[expressed] == 4) {
-            labelAttribute = "250,001-1,000,000 forestry acres burned in 2019";
-        } else if (props[expressed] == 5) {
-            labelAttribute = ">1,000,000 forestry acres burned in 2019";
-        };
-    } else if (expressed == "PermitFee") {
-        if (props[expressed] == "Required") {
-            labelAttribute = "Fee required with permit application";
-        } else if (props[expressed] == "Sometimes") {
-            labelAttribute = "Fee sometimes required with permit application";
-        } else if (props[expressed] == "Not Required") {
-            labelAttribute = "No fee with permit application";
-        } else if (props[expressed] == "N/A") {
-            labelAttribute = "Not applicable";
-        };
-    } else if (expressed == "Time4Permi") {
-        if (props[expressed] == 1) {
-            labelAttribute = "Not applicable";
-        } else if (props[expressed] == 2) {
-            labelAttribute = "Permit must be obtained at least day of burn";
-        } else if (props[expressed] == 3) {
-            labelAttribute = "Permit must be obtained more than 1 day before burn";
-        };
-    } else if (expressed == "BurnProgra") {
-        if (props[expressed] == "Yes") {
-            labelAttribute = "Has a state-certified burn program"; 
-        } else if (props[expressed] == "No") {
-            labelAttribute = "Does not have state-certified burn program";
-        };
-    } else if (expressed == "Trend_2017") {
-        labelAttribute = "Trend in forestry acres burned, 2017: " + props[expressed];
-    } else if (expressed == "Trend_2018") {
-        labelAttribute = "Trend in forestry acres burned, 2018: " + props[expressed];
-    } else if (expressed == "Trend_2019") {
-        labelAttribute = "Trend in forestry acres burned, 2019: " + props[expressed];
-    } else if (expressed == "LiabilityL") {
-        if (props[expressed] == 1) {
-            labelAttribute = "Strict Liability";
-        } else if (props[expressed] == 2) {
-            labelAttribute = "Simple Negligence";
-        } else if (props[expressed] == 3) {
-            labelAttribute = "Gross Negligence";
-        } else if (props[expressed] == 4) {
-            labelAttribute = "No law pertaining to fire liability or unknown";
-        };
-    } else if (expressed == "PermitRequ") {
-        labelAttribute = "Permit " + props[expressed] + " to burn";
-    } else if (expressed == "FireCounci") {
-        if (props[expressed] == "Yes" ) {         
-            labelAttribute = " " + "<a href=\'" + link+"\'>"+ linktext + "</a>"; 
-        } else if (props[expressed] == "No") {
-            labelAttribute = "No state fire council";
-        } else if (props[expressed] == "Regional") {
-            labelAttribute = " "+ linkInternal ;  // linkInternal links to interal page firecolinks.html
-        };
-    }; */
 
     //if, else if statements to makeup label content
     if (expressed == "acres_2017") {
@@ -427,7 +337,10 @@ function activate(props) {
         };
     } else if (expressed == "burnprogra") {
         if (props[expressed] == "Yes") {
-            labelAttribute = "Has a state-certified burn program"; 
+            if (cbmplink !== null) {
+            labelAttribute =  "<a href=\'" + cbmplink+"\'>" + "Has a state-certified burn program (link)" +"</a>"}
+            else {labelAttribute = "Has a state-certified burn program"
+            }; 
         } else if (props[expressed] == "No") {
             labelAttribute = "Does not have state-certified burn program";
         };
