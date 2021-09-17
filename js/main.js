@@ -328,14 +328,14 @@ function createLegend(expressed) {
         .attr("height", 400)
         .attr("class", "svg");   
     
-    //if, else if statement to choose the legend to be shown that corresponds with expressed
+    //if, else if statement to choose the legend to be shown that corresponds with expressed; expressed in header title 
     if (expressed == "acres_2017") {  
         svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#b3cde0").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#6497b1").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#03396c").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 10).attr("y", 100).text("Reported Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
@@ -347,7 +347,7 @@ function createLegend(expressed) {
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#03396c").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 10).attr("y", 100).text("Reported Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
@@ -359,7 +359,7 @@ function createLegend(expressed) {
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#03396c").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 250).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 10).attr("y", 100).text("Reported Agency Acres Burned").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("<1,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("1,001-50,000").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("50,001-250,000").style("font-size", "16px").attr("alignment-baseline","middle");
@@ -370,7 +370,7 @@ function createLegend(expressed) {
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 10).attr("y", 100).text("Application Fee").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 10).attr("y", 100).text("Burn Permit Application Fee").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("N/A").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("Not Required").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("Sometimes").style("font-size", "16px").attr("alignment-baseline","middle");
@@ -379,16 +379,17 @@ function createLegend(expressed) {
         svg.append("circle").attr("cx", 10).attr("cy" ,130).attr("r", 8).style("fill", "#b3cde081").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 7).attr("y", 100).text("Permit Authorization").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 7).attr("y", 100).text("Burn Permit Authorization").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("N/A").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("Day of Burn").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("More than 1 Day").style("font-size", "16px").attr("alignment-baseline","middle");
     } else if (expressed == "burnprogra") {
         svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#b3cde081").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Burn Programs").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 0).attr("y", 100).text("Certified Rx Burn Manager Program").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("Yes").style("font-size", "16px").attr("alignment-baseline","middle");
-        svg.append("text").attr("x", 30).attr("y", 162).text("No").style("font-size", "16px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 30).attr("y", 162).text("In Development").style("font-size", "16px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 30).attr("y", 192).text("No").style("font-size", "16px").attr("alignment-baseline","middle");
     } else if (expressed == "trend_2017") {
         svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#b3cde0").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
@@ -418,7 +419,7 @@ function createLegend(expressed) {
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#005b96").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 190).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 220).attr("r", 8).style("fill", "#b3cde081").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 15).attr("y", 100).text("Liability Law").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 15).attr("y", 100).text("Burn Liability Law").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("Strict Liability").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("Simple Negligence").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 192).text("Gross Negligence").style("font-size", "16px").attr("alignment-baseline","middle");
@@ -426,7 +427,7 @@ function createLegend(expressed) {
     } else if (expressed == "permitrequ") {
         svg.append("circle").attr("cx", 10).attr("cy", 130).attr("r", 8).style("fill", "#b3cde0").style("stroke", "black").style("stroke-width", .5);
         svg.append("circle").attr("cx", 10).attr("cy", 160).attr("r", 8).style("fill", "#011f4b").style("stroke", "black").style("stroke-width", .5);
-        svg.append("text").attr("x", 0).attr("y", 100).text("Permit Requirements").style("font-size", "20px").attr("alignment-baseline","middle");
+        svg.append("text").attr("x", 0).attr("y", 100).text("Burn Permit Requirements").style("font-size", "20px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 132).text("Required").style("font-size", "16px").attr("alignment-baseline","middle");
         svg.append("text").attr("x", 30).attr("y", 162).text("Not Required").style("font-size", "16px").attr("alignment-baseline","middle");
     } else if (expressed == "firecounci") {
